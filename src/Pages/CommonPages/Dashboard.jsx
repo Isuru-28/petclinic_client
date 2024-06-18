@@ -51,7 +51,7 @@ const Dashboard = () => {
 
   const fetchAppointmentsToday = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/appointments/AppointmentsToday');
+      const response = await axios.get(`${base_url}/api/appointments/AppointmentsToday`);
       setAppointmentsToday(response.data);
     } catch (error) {
       console.error('Error fetching appointments for today:', error);
@@ -300,7 +300,7 @@ const CustomTooltipForLineChart = ({ active, payload, label }) => {
         <Grid item xs={12} lg={7}>
           <Paper elevation={3} style={{ height: '300px' , padding:'20px', overflow: 'auto', scrollbarWidth: 'none', '-ms-overflow-style': 'none'}}>
             <Typography  variant="h6" gutterBottom>
-              Appointments Booked Today
+              Appointments Booked Today:
             </Typography>
             <List>
               {appointmentsToday.length > 0 ? (
